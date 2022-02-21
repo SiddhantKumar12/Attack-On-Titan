@@ -22,46 +22,44 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox.expand(
-        child: GradientBox(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Result: $score / ${questions.length}',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Result: $score / ${questions.length}',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 40,
               ),
-              SizedBox(height: 40),
-              ActionButton(
-                title: 'Play Again',
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => QuizScreen(
-                        totalTime: totalTime,
-                        questions: questions,
-                      ),
+            ),
+            SizedBox(height: 40),
+            ActionButton(
+              title: 'Play Again',
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => QuizScreen(
+                      totalTime: totalTime,
+                      questions: questions,
                     ),
-                  );
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ActionButton(
-                title: 'Home',
-                onTap: () {
-                  Navigator.of(context).pop(
-                    MaterialPageRoute(
-                      builder: (context) => TabWidget(),
-                    ),
-                  );
-                },
-              )
-            ],
-          ),
+                  ),
+                );
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ActionButton(
+              title: 'Home',
+              onTap: () {
+                Navigator.of(context).pop(
+                  MaterialPageRoute(
+                    builder: (context) => TabWidget(),
+                  ),
+                );
+              },
+            )
+          ],
         ),
       ),
     );

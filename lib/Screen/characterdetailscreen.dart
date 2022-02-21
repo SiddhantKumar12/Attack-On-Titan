@@ -23,12 +23,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     widget.name,
-      //     style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 22),
-      //   ),
-      // ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.only(top: 20, left: 15, right: 15),

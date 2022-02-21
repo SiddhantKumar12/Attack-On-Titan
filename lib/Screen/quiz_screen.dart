@@ -53,89 +53,87 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     final currentQuestion = widget.questions[_currentIndex];
     return Scaffold(
-      body: GradientBox(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 40),
-              SizedBox(
-                height: 40,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      LinearProgressIndicator(
-                        value: _currentTime / widget.totalTime,
-                      ),
-                      Center(
-                        child: Text(
-                          _currentTime.toString(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 40),
+            SizedBox(
+              height: 40,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    LinearProgressIndicator(
+                      value: _currentTime / widget.totalTime,
+                    ),
+                    Center(
+                      child: Text(
+                        _currentTime.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 40),
-              Text(
-                'Question',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
+            ),
+            SizedBox(height: 40),
+            Text(
+              'Question',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
               ),
-              SizedBox(height: 10),
-              Text(
-                currentQuestion.question,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              currentQuestion.question,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
               ),
-              // Spacer(),
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    final answer = currentQuestion.answers[index];
-                    return AnswerTile(
-                      isSelected: answer == _selectedAnswer,
-                      answer: answer,
-                      correctAnswer: currentQuestion.correctAnswer,
-                      onTap: () {
-                        setState(() {
-                          _selectedAnswer = answer;
-                        });
+            ),
+            // Spacer(),
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  final answer = currentQuestion.answers[index];
+                  return AnswerTile(
+                    isSelected: answer == _selectedAnswer,
+                    answer: answer,
+                    correctAnswer: currentQuestion.correctAnswer,
+                    onTap: () {
+                      setState(() {
+                        _selectedAnswer = answer;
+                      });
 
-                        if (answer == currentQuestion.correctAnswer) {
-                          _score++;
+                      if (answer == currentQuestion.correctAnswer) {
+                        _score++;
+                      }
+
+                      Future.delayed(Duration(milliseconds: 200), () {
+                        if (_currentIndex == widget.questions.length - 1) {
+                          pushResultScreen(context);
+                          return;
                         }
-
-                        Future.delayed(Duration(milliseconds: 200), () {
-                          if (_currentIndex == widget.questions.length - 1) {
-                            pushResultScreen(context);
-                            return;
-                          }
-                          setState(() {
-                            _currentIndex++;
-                            _selectedAnswer = '';
-                          });
+                        setState(() {
+                          _currentIndex++;
+                          _selectedAnswer = '';
                         });
-                      },
-                    );
-                  },
-                  itemCount: currentQuestion.answers.length,
-                ),
-              )
-            ],
-          ),
+                      });
+                    },
+                  );
+                },
+                itemCount: currentQuestion.answers.length,
+              ),
+            )
+          ],
         ),
       ),
     );

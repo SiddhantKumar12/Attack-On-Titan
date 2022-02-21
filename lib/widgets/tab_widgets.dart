@@ -1,6 +1,8 @@
 import 'package:attack_on_titan/Provider/theme_provider.dart';
 import 'package:attack_on_titan/Screen/AOT_Screen.dart';
+import 'package:attack_on_titan/Screen/CharacterScreen.dart';
 import 'package:attack_on_titan/Screen/aot_quiz.dart';
+import 'package:attack_on_titan/Screen/titanScreenFirebase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,12 +20,10 @@ class _TabWidgetState extends State<TabWidget> {
         Provider.of<ThemeProvider>(context, listen: false);
     return DefaultTabController(
       // initialIndex: 3,
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           titleTextStyle: Theme.of(context).textTheme.bodyText1,
-          // centerTitle: true,
-          // backgroundColor: Colors.white,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -55,7 +55,16 @@ class _TabWidgetState extends State<TabWidget> {
             tabs: [
               Tab(
                 child: Text(
-                  "not quiz ",
+                  "Titan ",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(fontSize: 18),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  "characters",
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
@@ -76,7 +85,8 @@ class _TabWidgetState extends State<TabWidget> {
         ),
         body: TabBarView(
           children: [
-            AOT_Screen(),
+            TitanScreenFirebase(),
+            CharacterScreen(),
             AotQuiz(),
           ],
         ),
