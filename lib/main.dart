@@ -1,12 +1,10 @@
 import 'package:attack_on_titan/Screen/aot_quiz.dart';
 import 'package:attack_on_titan/widgets/tab_widgets.dart';
 import 'package:flutter/material.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-
 import 'Provider/theme_provider.dart';
-import 'Screen/AOT_Screen.dart';
+import 'not in use/AOT_Screen.dart';
 import 'constant/themes.dart';
 import 'constant/local_storage.dart';
 

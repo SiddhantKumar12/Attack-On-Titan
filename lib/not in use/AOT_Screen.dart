@@ -1,11 +1,11 @@
 import 'package:attack_on_titan/Provider/theme_provider.dart';
-import 'package:attack_on_titan/Screen/data_adding.dart';
-import 'package:attack_on_titan/Screen/season_screen.dart';
+import 'package:attack_on_titan/not%20in%20use/data_adding.dart';
+import 'package:attack_on_titan/not%20in%20use/season_screen.dart';
 import 'package:attack_on_titan/Screen/titanScreenFirebase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'CharacterScreen.dart';
+import '../Screen/CharacterScreen.dart';
 
 class AOT_Screen extends StatefulWidget {
   const AOT_Screen({Key? key}) : super(key: key);

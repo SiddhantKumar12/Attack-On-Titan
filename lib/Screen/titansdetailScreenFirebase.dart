@@ -31,35 +31,31 @@ class _TitansDetailScreenFirebaseState
       // ),
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.only(top: 20, left: 15, right: 15),
+        padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
         child: ListView(
           children: [
-            Container(
-              // height: 200, width: 250,
-              // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: CachedNetworkImage(imageUrl: widget.image),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: CachedNetworkImage(imageUrl: widget.image),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   widget.name,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 ),
                 Text(
                   widget.height,
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 ),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
               widget.description,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),

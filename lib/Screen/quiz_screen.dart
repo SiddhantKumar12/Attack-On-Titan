@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:attack_on_titan/Screen/resut_screen.dart';
-import 'package:attack_on_titan/components/gradient_box.dart';
 import 'package:attack_on_titan/models/question.dart';
 import 'package:flutter/material.dart';
 

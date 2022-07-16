@@ -29,6 +29,9 @@ class _CharacterScreenState extends State<CharacterScreen> {
         }
         final data = snapshot.requireData;
         return ListView.builder(
+          padding: const EdgeInsets.only(
+            top: 20,
+          ),
           itemCount: data.size,
           itemBuilder: (context, index) {
             final characterData = data.docs[index];

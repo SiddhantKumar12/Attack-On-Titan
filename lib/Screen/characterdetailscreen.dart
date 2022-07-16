@@ -8,7 +8,7 @@ class CharacterDetailScreen extends StatefulWidget {
   final String description;
   final String history;
 
-  const CharacterDetailScreen(
+  CharacterDetailScreen(
       {required this.name,
       required this.rank,
       required this.image,
@@ -25,10 +25,10 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.only(top: 20, left: 15, right: 15),
+        padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
         child: ListView(
           children: [
-            Container(
+            SizedBox(
               height: 300, width: 200,
               // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: ClipRRect(
@@ -39,28 +39,28 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
               widget.name,
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 15),
-            Text(
+            const SizedBox(height: 15),
+            const Text(
               'about',
               style: TextStyle(fontSize: 16),
             ),
             Text(
               widget.description,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 15),
-            Text(
+            const SizedBox(height: 15),
+            const Text(
               'histroy',
               style: TextStyle(fontSize: 16),
             ),
             Text(
               widget.history,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),

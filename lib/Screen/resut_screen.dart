@@ -1,7 +1,7 @@
 import 'package:attack_on_titan/Screen/aot_quiz.dart';
 import 'package:attack_on_titan/Screen/quiz_screen.dart';
-import 'package:attack_on_titan/components/action_button.dart';
-import 'package:attack_on_titan/components/gradient_box.dart';
+import 'package:attack_on_titan/widgets/action_button.dart';
+import 'package:attack_on_titan/widgets/gradient_box.dart';
 import 'package:attack_on_titan/models/question.dart';
 import 'package:attack_on_titan/widgets/tab_widgets.dart';
 import 'package:flutter/material.dart';

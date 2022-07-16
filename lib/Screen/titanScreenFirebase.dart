@@ -13,7 +13,7 @@ class TitanScreenFirebase extends StatefulWidget {
 class _TitanScreenFirebaseState extends State<TitanScreenFirebase> {
   final Stream<QuerySnapshot> characters = FirebaseFirestore.instance
       .collection('titan')
-      .orderBy('date', descending: true)
+      .orderBy('date', descending: false)
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -21,19 +21,17 @@ class _TitanScreenFirebaseState extends State<TitanScreenFirebase> {
         stream: characters,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Center(child: const Text('Error'));
+            return const Center(child: Text('Error'));
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
           final data = snapshot.requireData;
           return ListView.builder(
-              reverse: true,
               itemCount: data.size,
               padding: const EdgeInsets.only(
                   top: 20, left: 20, right: 20, bottom: 20),
               itemBuilder: (context, index) {
-                // final titansData = titans[index];
                 final titansData = data.docs[index];
                 return GestureDetector(
                   onTap: () => Navigator.push(
@@ -48,9 +46,9 @@ class _TitanScreenFirebaseState extends State<TitanScreenFirebase> {
                     ),
                   ),
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
                     child: Card(
-                      elevation: 6,
                       clipBehavior: Clip.antiAlias,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -67,7 +65,8 @@ class _TitanScreenFirebaseState extends State<TitanScreenFirebase> {
                                 width: 360,
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 10, bottom: 10),
+                                padding:
+                                    const EdgeInsets.only(left: 10, bottom: 10),
                                 alignment: Alignment.bottomLeft,
                                 height: 150,
                                 width: double.infinity,
@@ -89,17 +88,16 @@ class _TitanScreenFirebaseState extends State<TitanScreenFirebase> {
                                       .bodyText1!
                                       .copyWith(fontSize: 22),
                                 ),
-                                // color: Colors.black,
                               ),
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: Text(
                               titansData['description'],
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                               ),
                             ),

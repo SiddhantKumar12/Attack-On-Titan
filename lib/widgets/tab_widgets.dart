@@ -1,5 +1,5 @@
 import 'package:attack_on_titan/Provider/theme_provider.dart';
-import 'package:attack_on_titan/Screen/AOT_Screen.dart';
+import 'package:attack_on_titan/not%20in%20use/AOT_Screen.dart';
 import 'package:attack_on_titan/Screen/CharacterScreen.dart';
 import 'package:attack_on_titan/Screen/aot_quiz.dart';
 import 'package:attack_on_titan/Screen/titanScreenFirebase.dart';
@@ -23,6 +23,7 @@ class _TabWidgetState extends State<TabWidget> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           titleTextStyle: Theme.of(context).textTheme.bodyText1,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
