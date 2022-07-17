@@ -1,5 +1,4 @@
 import 'package:attack_on_titan/Provider/theme_provider.dart';
-import 'package:attack_on_titan/not%20in%20use/AOT_Screen.dart';
 import 'package:attack_on_titan/Screen/CharacterScreen.dart';
 import 'package:attack_on_titan/Screen/aot_quiz.dart';
 import 'package:attack_on_titan/Screen/titanScreenFirebase.dart';
@@ -29,7 +28,7 @@ class _TabWidgetState extends State<TabWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'News App',
+                'AOT App',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1!
@@ -44,11 +43,11 @@ class _TabWidgetState extends State<TabWidget> {
                 themeProvider.toggleTheme();
               },
               icon: (themeProvider.themeMode == ThemeMode.light)
-                  ? Icon(
+                  ? const Icon(
                       Icons.dark_mode,
                       color: Colors.black,
                     )
-                  : Icon(Icons.light_mode),
+                  : const Icon(Icons.light_mode),
             ),
           ],
           bottom: TabBar(
@@ -84,7 +83,7 @@ class _TabWidgetState extends State<TabWidget> {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             TitanScreenFirebase(),
             CharacterScreen(),
