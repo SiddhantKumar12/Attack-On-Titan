@@ -50,7 +50,7 @@ class AddingData extends StatelessWidget {
                   controller: extra,
                   decoration: const InputDecoration(hintText: 'extra'),
                 ),
-                FlatButton(
+                ElevatedButton(
                     onPressed: () {
                       Map<String, dynamic> data = {
                         'date': DateTime.now(),
